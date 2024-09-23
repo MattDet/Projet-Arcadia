@@ -1,0 +1,23 @@
+footer {
+    background-color: #f8f9fa; /* Couleur de fond légère */
+}  
+
+footer p {
+    margin-bottom: 0; /* Retirer la marge par défaut */
+}
+
+footer a {
+    color: #007bff; /* Couleur des liens */
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline; /* Souligner les liens au survol */
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}

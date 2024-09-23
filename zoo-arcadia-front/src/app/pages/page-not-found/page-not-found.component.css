@@ -1,0 +1,16 @@
+.text-center {
+    margin-top: 50px;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    color: #dc3545; /* Couleur rouge pour le message d'erreur */
+  }
+  
+  p {
+    font-size: 1.2rem;
+  }
+
+.btn {
+    margin-bottom: 1rem;
+    }
