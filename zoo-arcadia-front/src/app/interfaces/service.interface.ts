@@ -3,6 +3,7 @@ export interface Service {
     id: number;
     name: string;
     description: string;
+    // Le champ "comment" correspond au champ dans l'API Spring
     comments: string;
     imagePath?: string;
 }

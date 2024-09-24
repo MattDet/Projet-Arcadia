@@ -26,6 +26,6 @@ public class ServiceArcadia {
     private String name;
     @Column(name = "description")
     private String description;
-    @Column(name = "comment")
+    @Column(name = "comments")
     private String comment;
 }

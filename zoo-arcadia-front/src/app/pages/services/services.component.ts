@@ -33,7 +33,7 @@ export class ServicesComponent implements OnInit {
         this.services.forEach(service => {
           this.imageService.getImagesByService(service.id).subscribe(imagesResponse => {
             if (imagesResponse.totalItems > 0) {
-              this.images[service.id] = `http://localhost:8000${imagesResponse.member[0].path}`;
+              this.images[service.id] = `http://localhost:8080${imagesResponse.member[0].path}`;
               console.log(`Image for service ${service.id}:`, this.images[service.id]); // Log pour vérification
             }
           });

@@ -12,7 +12,7 @@ import zoo.arcadia.back.repository.SpeciesRepository;
 @Log4j2
 @Service
 @RequiredArgsConstructor
-public class SpeciesService {
+public class SpeciesService  {
     
     private final SpeciesRepository speciesRepository;
     
@@ -35,7 +35,9 @@ public class SpeciesService {
     }
 
     public Species updateSpecies(Species species) {
-
+        if (species.getId() != null && speciesRepository.existsById(species.getId())) {
+            return speciesRepository.save(species);
+        }
         throw new IllegalArgumentException("Species not found");
     }
 
