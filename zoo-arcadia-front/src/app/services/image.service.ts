@@ -1,28 +1,35 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ImageResponse } from '../interfaces/image.interface';
+
+interface Image {
+  id: number;
+  path: string;
+}
+
+interface ImageResponse {
+  totalItems: number;
+  member: Image[];
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImageService {
-  private apiUrl = 'http://localhost:8080/v1/images';
+  private apiUrl = 'http://localhost:8000/api/images';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  // Récupération des images par service
   getImagesByService(serviceId: number): Observable<ImageResponse> {
-    return this.http.get<ImageResponse>(`${this.apiUrl}/service/${serviceId}`);
+    return this.http.get<ImageResponse>(`${this.apiUrl}?service.id=${serviceId}`);
   }
 
-  // Récupération des images par habitat
   getImagesByHabitat(habitatId: number): Observable<ImageResponse> {
-    return this.http.get<ImageResponse>(`${this.apiUrl}/habitat/${habitatId}`);
+    return this.http.get<ImageResponse>(`${this.apiUrl}?habitat.id=${habitatId}`); 
   }
 
-  // Récupération des images par animal
   getImagesByAnimal(animalId: number): Observable<ImageResponse> {
-    return this.http.get<ImageResponse>(`${this.apiUrl}/animal/${animalId}`);
-  }
+    return this.http.get<ImageResponse>(`http://localhost:8000/api/images?animal.id=${animalId}`);
+}
+
 }

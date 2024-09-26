@@ -8,7 +8,7 @@ import { ServiceResponse } from '../interfaces/service.interface';
 })
 export class ServiceService {
   // Mettre à jour l'URL pour correspondre à l'API Spring
-  private apiUrl = 'http://localhost:8080/v1/services';
+  private apiUrl = 'http://localhost:8000/api/services';
 
   constructor(private http: HttpClient) { }
 

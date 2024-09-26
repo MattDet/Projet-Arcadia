@@ -1,0 +1,19 @@
+# see https://symfony.com/doc/current/reference/configuration/framework.html
+framework:
+    secret: '%env(APP_SECRET)%'
+    #csrf_protection: true
+
+    # Note that the session will be started ONLY if you read or write from it.
+    session:
+        handler_id: null  # Utilise la session PHP par défaut
+        cookie_secure: auto  # Active automatiquement la sécurité des cookies si HTTPS est activé
+        cookie_samesite: lax  # Protection contre les attaques CSRF
+        cookie_lifetime: 3600  # Durée de vie du cookie de session (en secondes)
+    #esi: true
+    #fragments: true
+
+when@test:
+    framework:
+        test: true
+        session:
+            storage_factory_id: session.storage.factory.mock_file

@@ -12,7 +12,6 @@ import { ServiceService } from '../../services/service.service';
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.css']
 })
-
 export class ServicesComponent implements OnInit {
   services: Service[] = [];
   images: { [key: number]: string } = {}; // Pour stocker les chemins d'images
@@ -31,13 +30,13 @@ export class ServicesComponent implements OnInit {
 
         // Charger les images pour chaque service
         this.services.forEach(service => {
-          this.imageService.getImagesByService(service.id).subscribe(imagesResponse => {
-            if (imagesResponse.totalItems > 0) {
-              this.images[service.id] = `http://localhost:8080${imagesResponse.member[0].path}`;
-              console.log(`Image for service ${service.id}:`, this.images[service.id]); // Log pour vérification
+          this.imageService.getImagesByService(service.id).subscribe(images => {
+            if (images.totalItems > 0) {
+              this.images[service.id] = `http://localhost:8000${images.member[0].path}`;
+              console.log(`Image for service ${service.id}:`, this.images[service.id]); // Log après correction
             }
           });
-        });
+        });        
       },
       error: (error) => {
         console.error('Erreur lors de la récupération des services', error);
